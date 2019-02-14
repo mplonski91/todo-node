@@ -1,10 +1,14 @@
 const { fetchList, saveData } = require("./functions");
 
-module.exports.addSingleTask = title => {
+module.exports.addSingleTask = (title, group) => {
   let list = fetchList();
   const task = {
+    id: Math.random()
+      .toString(36)
+      .substr(2, 9),
     title,
-    status: "aktywne"
+    status: "aktywne",
+    group
   };
 
   const checkList = list.filter(task => task.title === title);

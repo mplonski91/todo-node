@@ -9,3 +9,15 @@ module.exports.showTask = title => {
 module.exports.allTasks = () => {
   return fetchList();
 };
+
+module.exports.filterTasks = statusTasks => {
+  const list = fetchList();
+  const result = list.filter(task => task.status === statusTasks);
+  return result;
+};
+
+module.exports.showGroup = groups => {
+  const list = fetchList();
+  const result = list.filter(task => task.group === groups);
+  return result;
+};

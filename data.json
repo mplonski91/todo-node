@@ -1,1 +1,1 @@
-[{"title":"Node","status":"aktywne"},{"title":"Angular","status":"aktywne"},{"title":"React","status":"aktywne"},{"title":"JavaScript","status":"aktywne"}]
+[{"id":1,"title":"Node","status":"aktywne"},{"id":2,"title":"Angular","status":"aktywne"},{"id":3,"title":"React","status":"aktywne"},{"id":4,"title":"PHP","status":"aktywne"},{"id":5,"title":"PHP1","status":"aktywne"},{"id":7,"title":"PHP3","status":"aktywne"},{"id":7,"title":"PHP2","status":"aktywne","group":"zakupy"},{"id":"edl0xb9ht","title":"PHP5","status":"aktywne","group":"zakupy"}]
