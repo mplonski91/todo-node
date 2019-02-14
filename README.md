@@ -1,6 +1,6 @@
 Komendy do obsługi aplikacji CLI
 
-1)Dodawanie zadania
+1)Dodawanie zadania<br />
 node app.js addTask --title="nazwa_zadania"
 
 W przypadku dodania zadania z grupą musimy dodać jeszcze jeden parametr --group
