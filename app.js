@@ -1,9 +1,13 @@
 const _ = require("lodash");
 const yargs = require("yargs");
+const chalk = require("chalk");
 const addTasks = require("./addTasks");
 const removeTask = require("./removeTask");
 const showElements = require("./showElements");
 const changeStatus = require("./changeStatus");
+const connectServer = require("./connectServer");
+const { fetchList } = require("./functions");
+const log = console.log;
 
 const argv = yargs.argv;
 const commandLine = argv._[0];
@@ -13,46 +17,56 @@ if (commandLine == "addTask") {
 } else if (commandLine == "removeTask") {
   removeTask.removeSingleTask(argv.title, argv.id);
   if (removeTask) {
-    console.log(`Zadanie: "${argv.title}" zostało usunięte`);
+    log(chalk.green(`Zadanie: "${argv.title}" zostało usunięte`));
   } else {
-    console.log(`Zadanie: "${argv.title}" nie zostało znaleznione`);
+    log(chalk.red(`Zadanie: "${argv.title}" nie zostało znaleznione`));
   }
 } else if (commandLine === "showTask") {
   const task = showElements.showTask(argv.title);
   if (task) {
-    console.log(`Zadanie "${task}" zostało znalezione`);
+    log(chalk.green(`Zadanie "${task}" zostało znalezione`));
   } else {
-    console.log("Zadanie nie zostało znaleznione");
+    log(chalk.red("Zadanie nie zostało znaleznione"));
   }
 } else if (commandLine === "showAll") {
   const allElements = showElements.allTasks();
   allElements.forEach(element => {
-    console.log(`Nazwa zadania: ${element.title}`);
-    console.log(`Status zadania: ${element.status}`);
-    console.log("=============================");
+    log(chalk`
+    Nazwa zadania: {blue ${element.title}}
+    Status zadania: {green ${element.status}}
+    =============================
+    `);
   });
 } else if (commandLine === "changeStatus") {
   const task = changeStatus.changeStatusTask(argv.title, argv.status);
   if (task) {
-    console.log(
-      `Status zadania "${task.title}" został zmieniony na "${task.status}" `
+    log(
+      chalk.green(
+        `Status zadania "${task.title}" został zmieniony na "${task.status}" `
+      )
     );
   } else {
-    console.log("Błąd podczas wpisywania komendy");
+    log(chalk.log("Błąd podczas wpisywania komendy"));
   }
 } else if (commandLine === "filterTasks") {
   const filterdTasks = showElements.filterTasks(argv.status);
   filterdTasks.forEach(element => {
-    console.log(`Nazwa zadania: ${element.title}`);
-    console.log(`Status zadania: ${element.status}`);
-    console.log("=============================");
+    log(chalk`
+    Nazwa zadania: {blue ${element.title}}
+    Status zadania: {green ${element.status}}
+    =============================
+    `);
   });
 } else if (commandLine === "groupsTasks") {
   const group = showElements.showGroup(argv.group);
   group.forEach(element => {
-    console.log(`Nazwa zadania: ${element.title}`);
-    console.log(`Status zadania: ${element.status}`);
-    console.log(`Status zadania: ${element.group}`);
-    console.log("=============================");
+    log(chalk`
+    Nazwa zadania: {blue ${element.title}}
+    Status zadania: {green ${element.status}}
+    Grupa zadania: {yellow ${element.group}}
+    =============================
+    `);
   });
+} else if (commandLine === "download") {
+  connectServer.getData();
 }

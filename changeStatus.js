@@ -1,4 +1,5 @@
 const { fetchList, saveData } = require("./functions");
+const connectServer = require("./connectServer");
 
 module.exports.changeStatusTask = (title, statusTask) => {
   const list = fetchList();
@@ -16,6 +17,7 @@ module.exports.changeStatusTask = (title, statusTask) => {
   }
 
   saveData(list);
+  connectServer.postData(list);
 
   return result[0];
 };
