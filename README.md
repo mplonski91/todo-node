@@ -29,5 +29,5 @@ node app.js download
 
 <hr />
 
-<strong>7) Dodawanie/Edytowanie grupy dla konkretnego zadania</strong>
-node app.js addGroup --title="Nauka Nodejs" --group="nauka1"
+<strong>7) Dodawanie/Edytowanie grupy dla konkretnego zadania</strong><br />
+node app.js addGroup --title="nazwa_zadania" --group="nazwa_grupy"
