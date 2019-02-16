@@ -20,5 +20,8 @@ node app.js filterTask --status="kompletne"
 <strong>5)Wyświetlanie zadań po grupie</strong><br />
 node app.js groupsTasks --group="nazwa_grupy"
 
-<strong>5)Pobranie danych z serwera</strong><br />
+<strong>Adres do serwera</strong>
+http://api.quuu.linuxpl.eu/todo/rrwrwxqu
+
+<strong>6)Pobranie danych z serwera</strong><br />
 node app.js download
