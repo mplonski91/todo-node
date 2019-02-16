@@ -4,7 +4,7 @@ const connectServer = require("./connectServer");
 const log = console.log;
 
 module.exports.addSingleTask = (title, group) => {
-  let list = fetchList();
+  const list = fetchList();
   const task = {
     id: Math.random()
       .toString(36)
@@ -24,4 +24,15 @@ module.exports.addSingleTask = (title, group) => {
   } else {
     log(chalk.red("Takie zadanie jest juz dodane"));
   }
+};
+
+module.exports.addGroup = (title, groupTask) => {
+  const list = fetchList();
+  const result = list.filter(task => task.title === title);
+
+  result[0].group = groupTask;
+  saveData(list);
+  connectServer.postData(list);
+
+  return result[0];
 };

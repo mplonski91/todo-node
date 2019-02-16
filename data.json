@@ -1,1 +1,1 @@
-[{"id":"vrtbdlv68","title":"Kupić mleko","status":"aktywne"},{"id":"6a1mq68ar","title":"Nauka Nodejs","status":"kompletne"}]
+[{"id":"vrtbdlv68","title":"Kupić mleko","status":"aktywne","group":"zakupy"},{"id":"6a1mq68ar","title":"Nauka Nodejs","status":"kompletne","group":"nauka"}]

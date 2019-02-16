@@ -69,4 +69,11 @@ if (commandLine == "addTask") {
   });
 } else if (commandLine === "download") {
   connectServer.getData();
+} else if (commandLine == "addGroup") {
+  const add = addTasks.addGroup(argv.title, argv.group);
+  if (add) {
+    log(chalk.green(`Grupa została dodana `));
+  } else {
+    log(chalk.red(`Wystąpił problem podczas dodawania grupy`));
+  }
 }
